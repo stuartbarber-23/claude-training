@@ -1,0 +1,226 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.7 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a humanities passage containing implicit themes: Extract topics from a literary criticism excerpt discussing narrative techniques, symbolism, and historical context to ensure the prompt identifies both explicit academic terms and implicit scholarly concepts</td>
+                <td class="prompt-inputs"><strong>content:</strong> Modernist literature's fragmentation of narrative structure fundamentally challenged Victorian conventions of linear storytelling, forcing readers to confront the instability of meaning itself. Virginia Woolf's stream-of-consciousness technique, exemplified in Mrs. Dalloway, dissolves the boundaries between external events and internal consciousness, while T.S. Eliot's use of mythic parallels in The Waste Land creates palimpsestic layers of historical and cultural allusion. These formal innovations were not merely aesthetic choices but reflected the epistemological crisis of the early twentieth century—the collapse of grand narratives following World War I, the influence of Freudian psychology, and the emergence of relativity theory. Symbolism functions in these works not as transparent representation but as a site of interpretive multiplicity, where a single image (Woolf's window, Eliot's Fisher King) accumulates meanings across temporal and cultural registers.</td>
+                <td class="criteria">• Extracts both explicit academic terms (stream-of-consciousness, mythic parallels, symbolism, palimpsestic) and implicit scholarly concepts (narrative instability, epistemological crisis, interpretive multiplicity)<br>• Identifies broader thematic areas (Modernist literature, narrative structure, historical context, psychological influence) alongside specific textual references<br>• Returns results as a JSON array of strings with no additional formatting or explanatory text</td>
+                <td class="output"><pre>```json
+[
+  "Modernist literature and narrative fragmentation",
+  "Victorian narrative conventions",
+  "Stream-of-consciousness technique",
+  "Virginia Woolf's Mrs. Dalloway",
+  "T.S. Eliot's The Waste Land",
+  "Mythic parallels and allusion",
+  "Symbolism and interpretation",
+  "Epistemological crisis of early twentieth century",
+  "Post-World War I cultural collapse",
+  "Freudian psychology influence on literature",
+  "Relativity theory and modernism",
+  "Meaning and textual instability"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics, each string contains only a topic without commentary, and the response contains only the JSON array. The extraction demonstrates strong understanding of both explicit and implicit concepts, with good coverage of thematic areas and specific references. However, there are notable omissions of explicitly stated academic terms ('palimpsestic') and concepts ('interpretive multiplicity') that should have been included. The solution is comprehensive but not exhaustive in capturing all identifiable topics from the passage.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with an interdisciplinary passage covering multiple subject areas: Provide text from a social science article that blends psychology, statistics, and policy discussion to evaluate whether the prompt correctly segments topics across different knowledge domains without over-generalizing or missing cross-disciplinary concepts</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent longitudinal studies examining the relationship between social media engagement and adolescent mental health outcomes reveal complex patterns that challenge earlier assumptions of direct causality. Using multilevel regression analyses with propensity score matching to control for selection bias, researchers found that the association between daily screen time and depressive symptoms varies significantly by socioeconomic status and peer network composition. Notably, the effect sizes differ by gender, with girls showing stronger correlations (r = 0.38, p < 0.001) compared to boys (r = 0.19, p < 0.05). These findings have prompted policy discussions regarding digital literacy interventions in schools and regulatory frameworks governing algorithmic content recommendation systems, with stakeholders debating whether age-restricted access or educational approaches prove more effective in mitigating psychological harm while preserving adolescent autonomy and social connection.</td>
+                <td class="criteria">• Identifies topics spanning psychology (mental health, adolescent development), statistics (regression analysis, effect sizes, propensity matching), and policy (regulation, interventions, digital literacy)<br>• Avoids over-generalizing by capturing distinct methodological and domain-specific concepts rather than reducing to single broad topics<br>• Segments cross-disciplinary intersections appropriately without fragmenting integrated concepts</td>
+                <td class="output"><pre>```json
+[
+  "Social media engagement and adolescent mental health",
+  "Longitudinal studies on screen time effects",
+  "Depressive symptoms in adolescents",
+  "Selection bias in causal analysis",
+  "Multilevel regression analysis and propensity score matching",
+  "Socioeconomic status and mental health disparities",
+  "Peer network composition effects",
+  "Gender differences in social media impact",
+  "Digital literacy interventions in schools",
+  "Algorithmic content recommendation systems",
+  "Age-restricted access to digital platforms",
+  "Adolescent autonomy and social connection",
+  "Policy and regulatory frameworks for digital media",
+  "Psychological harm mitigation strategies"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings, each entry contains only a topic without commentary, and the response contains nothing but the JSON array. Regarding secondary criteria, the solution excellently identifies topics spanning the three required domains (psychology: mental health, adolescent development; statistics: regression analysis, propensity matching, effect sizes; policy: regulation, interventions, digital literacy). It avoids over-generalization by capturing distinct methodological and domain-specific concepts (e.g., 'Propensity score matching' as separate from general regression analysis, 'Algorithmic content recommendation systems' as distinct from broader digital policy). Cross-disciplinary intersections are appropriately segmented without fragmentation—for example, gender differences are captured as a distinct topic rather than being merged into a broader mental health category. The 14 topics extracted represent a thorough and well-balanced analysis of the passage.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a dense scientific abstract containing specialized terminology and acronyms: Use a biology/chemistry passage with domain-specific jargon, chemical compounds, and technical processes to verify the prompt can distinguish between main research topics and incidental methodological details</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study investigates the role of CRISPR-Cas9 gene editing in modulating BDNF expression within hippocampal neurons derived from induced pluripotent stem cells (iPSCs). We employed whole-genome sequencing (WGS) and quantitative reverse transcription PCR (qRT-PCR) to assess off-target mutations and validate transgene expression levels. The neuronal cultures were maintained in Neurobasal-A medium supplemented with B27, and differentiation was induced using brain-derived neurotrophic factor (BDNF) and glial cell line-derived neurotrophic factor (GDNF). Our results demonstrate that precise CRISPR-mediated deletion of the BDNF regulatory region reduced synaptic plasticity markers, including decreased phosphorylation of CREB and reduced spine density, as measured by confocal microscopy. These findings suggest that epigenetic regulation of BDNF is critical for long-term potentiation and memory consolidation in neural circuits.</td>
+                <td class="criteria">• Extracts primary research topics (e.g., CRISPR-Cas9, BDNF, gene editing, synaptic plasticity, iPSCs) while excluding incidental methodological details (e.g., specific medium components, microscopy types)<br>• Distinguishes between main research concepts and technical procedures/tools used to study them<br>• Returns results as a JSON array of strings with no duplicates</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR-Cas9 gene editing",
+  "BDNF expression modulation",
+  "Hippocampal neurons",
+  "Induced pluripotent stem cells (iPSCs)",
+  "Whole-genome sequencing (WGS)",
+  "Quantitative reverse transcription PCR (qRT-PCR)",
+  "Off-target mutations",
+  "Neuronal differentiation",
+  "Brain-derived neurotrophic factor (BDNF)",
+  "Glial cell line-derived neurotrophic factor (GDNF)",
+  "Synaptic plasticity",
+  "CREB phosphorylation",
+  "Dendritic spine density",
+  "Confocal microscopy",
+  "Epigenetic regulation",
+  "Long-term potentiation",
+  "Memory consolidation",
+  "Neural circuits"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings with no duplicates and no extra commentary. However, the secondary criteria ask to distinguish between main research concepts and technical procedures/tools. The solution includes several technical procedures (WGS, qRT-PCR, confocal microscopy) as if they were primary topics. That said, these techniques are explicitly mentioned as central to the study's methodology and findings, making their inclusion defensible. The solution demonstrates good judgment in capturing the core research narrative while including supporting technical elements. The minor inconsistencies in what constitutes a 'primary topic' versus 'methodological detail' prevent a perfect score, but the overall quality is high.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
