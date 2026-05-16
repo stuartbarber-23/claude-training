@@ -1,0 +1,314 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">4.3 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">33.3%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a strength/power athlete (weightlifter) requiring balanced macronutrients with high protein intake and specific meal timing around workouts</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 85 kg<br><strong>goal:</strong> Maximize strength and muscle gain for weightlifting competition<br><strong>restrictions:</strong> No shellfish allergy</td>
+                <td class="criteria">• Meal plan covers all meals for one full day with specific timing around workout<br>• Includes high protein intake (minimum 1.7g per kg body weight) distributed across meals<br>• Balanced macronutrients with adequate carbohydrates for energy and recovery<br>• Practical and compact format suitable for a single athlete</td>
+                <td class="output"><pre># Nutrition Plan for Strength & Muscle Gain
+
+## Caloric Intake
+- **Daily target**: ~3,000-3,500 kcal (surplus for muscle gain)
+- Adjust based on weekly weight gain (~0.5-1 lb/week is ideal)
+
+## Macronutrient Breakdown
+
+| Macro | Daily Target | Details |
+|-------|--------------|---------|
+| **Protein** | 170-190g | ~2g per kg bodyweight |
+| **Carbs** | 400-500g | Fuel for training & recovery |
+| **Fat** | 85-110g | ~25-30% of calories |
+
+## Food Recommendations
+
+### **Protein Sources**
+- Lean beef, chicken breast, turkey
+- Fish (salmon, cod, tuna)
+- Eggs & egg whites
+- Greek yogurt, cottage cheese
+- Whey protein powder
+- Legumes (beans, lentils)
+
+### **Carbohydrates**
+- Oats, brown rice, quinoa
+- Sweet potatoes, regular potatoes
+- Whole grain bread & pasta
+- Fruits (bananas, berries, apples)
+
+### **Healthy Fats**
+- Olive oil, avocados
+- Nuts (almonds, peanuts)
+- Seeds (chia, flax)
+- Fatty fish
+
+### **Vegetables**
+- Broccoli, spinach, kale
+- Bell peppers, asparagus
+- Carrots, Brussels sprouts
+
+## Meal Timing
+- Eat protein + carbs around workouts
+- Space meals 3-4 hours apart
+- Consider creatine supplementation
+
+**Track progress weekly** and adjust calories if weight plateaus.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails to meet a mandatory requirement: 'Meals with exact food, portions and timing.' While it excellently addresses macronutrient targets and provides quality food recommendations, it is fundamentally a nutrition framework rather than an actual 1-day meal plan. The task explicitly requests a '1 day meal plan' with specific meals, but the solution provides only general guidelines and food categories. A compliant solution would show something like: 'Breakfast (7am): 3 eggs + 100g oats + banana = XXg protein, XXg carbs, XXg fat' for each meal throughout the day. The solution reads as a template or educational guide rather than an actionable daily meal plan for the athlete.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a sport-specific dietary restriction (vegan cyclist) requiring plant-based protein sources and performance nutrition within ethical constraints</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178 cm<br><strong>weight:</strong> 72 kg<br><strong>goal:</strong> High-intensity cycling training with endurance focus<br><strong>restrictions:</strong> Vegan (no animal products)</td>
+                <td class="criteria">• Meal plan covers all 3 meals plus snacks for one full day<br>• All foods are plant-based with no animal products<br>• Includes adequate protein from plant sources to support cycling performance<br>• Provides pre/during/post-workout nutrition strategy for training day</td>
+                <td class="output"><pre># Vegan Nutrition Plan for Endurance Cycling
+
+## Daily Calorie & Macro Overview
+- **Daily calories**: ~2,800-3,200 (depending on training intensity)
+- **Protein**: 110-130g (1.5-1.8g per kg bodyweight)
+- **Carbs**: 400-480g (5.5-6.5g per kg for endurance training)
+- **Fats**: 70-90g (25% of calories)
+
+## Core Protein Sources
+- Legumes: lentils, chickpeas, beans
+- Tofu & tempeh (fermented is easier to digest)
+- Hemp seeds, pumpkin seeds
+- Nutritional yeast
+- Vegan protein powder (pea, hemp, or blended)
+- Nuts and nut butters
+- Whole grains (quinoa, buckwheat)
+
+## Carb-Rich Cycling Fuel
+- Oats, rice, pasta, potatoes, sweet potatoes
+- Whole grain bread
+- Bananas (great pre/post-ride)
+- Dates and dried fruit (easy energy)
+
+## Pre/During/Post Training
+- **Pre-ride** (2-3h before): Oats + banana + almond butter
+- **During** (long rides): Dates, energy bars, or sports drinks
+- **Post-ride** (30-60min): Smoothie with protein powder + banana + berries
+
+## Don't Forget
+- Supplement **B12** (essential for vegans)
+- Track iron intake (pair with vitamin C)
+- Consider **omega-3s** (flax, chia, algae supplements)
+
+Would you like specific meal ideas or a sample day?</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails to meet mandatory requirements. While it provides excellent nutritional guidance, macro targets, and training nutrition strategy, it explicitly asks 'Would you like specific meal ideas or a sample day?' rather than delivering them. The task requires 'a 1 day meal plan' with specific meals, portions, and timing. The solution provides a framework and educational content but not an actual meal plan. It lacks: (1) three complete meals with exact foods and portions, (2) specific timing for all meals/snacks throughout the day, and (3) a concrete daily total with actual macronutrient breakdown for the proposed meals. This is a framework document, not a meal plan.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a high-endurance athlete (marathon runner) requiring 3500+ calories with emphasis on carbohydrate loading and hydration strategies</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 70 kg<br><strong>goal:</strong> Marathon training day with 3500+ calorie intake, carbohydrate loading, and hydration strategy<br><strong>restrictions:</strong> None</td>
+                <td class="criteria">• Meal plan totals 3500+ calories with emphasis on carbohydrates (55-60% of total calories)<br>• Includes specific hydration strategy with fluid intake recommendations throughout the day<br>• Provides 6-7 meals/snacks spaced appropriately for endurance training<br>• Compact format suitable for single day reference</td>
+                <td class="output"><pre># Marathon Training Day Nutrition Plan
+
+## Daily Calorie Target: 3500+ calories
+**BMR (~1700) + Training (~1800) = 3500 kcal**
+
+---
+
+## Meal-by-Meal Breakdown
+
+### **Breakfast (800 cal)**
+- 2 cups oatmeal with honey (500 cal)
+- 2 slices whole wheat toast with peanut butter (250 cal)
+- Banana (50 cal)
+- *Carbs: 120g | Protein: 20g*
+
+### **Mid-Morning Snack (400 cal)**
+- Sports drink or smoothie (200 cal: banana, berries, yogurt)
+- Granola bar or rice cakes with jam (200 cal)
+- *Carbs: 95g | Protein: 8g*
+
+### **Lunch (900 cal)**
+- Large pasta bowl with lean chicken (400 cal)
+- Garden salad with olive oil (100 cal)
+- Whole wheat roll (150 cal)
+- Orange juice (250 cal)
+- *Carbs: 140g | Protein: 35g*
+
+### **Pre-Run Snack (300 cal)** *(1-2 hrs before)*
+- Energy bars or dates (200 cal)
+- Water (100 cal from electrolytes)
+- *Carbs: 75g | Protein: 4g*
+
+### **Dinner (800 cal)**
+- Lean protein (200g salmon/chicken) (350 cal)
+- Sweet potato or rice (200 cal)
+- Vegetables (100 cal)
+- Pasta or bread (150 cal)
+- *Carbs: 100g | Protein: 45g*
+
+### **Evening Snack (300 cal)**
+- Greek yogurt (150 cal)
+- Berries and granola (150 cal)
+
+---
+
+## Hydration Strategy
+
+| Time | Fluid | Purpose |
+|------|-------|---------|
+| **Morning** | 500ml water | Pre-run hydration |
+| **During Run** | 6-8% carb drink (500-750ml) | Fuel + electrolytes |
+| **Post-Run** | 500ml+ water + electrolytes | Recovery |
+| **Throughout Day** | 3-4L total water | Maintain hydration |
+
+---
+
+## Macronutrient Targets
+
+- **Carbohydrates: 550-600g** (7-8g per kg body weight)
+- **Protein: 110-140g** (1.5-2g per kg)
+- **Fat: 100-120g** (25-30% of calories)
+
+✅ **Key Focus:** High carbs, adequate protein, consistent hydration</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully addresses all mandatory requirements with a comprehensive meal plan totaling 3500+ calories, complete macronutrient targets, and 6 meals with specific foods and portions. The hydration strategy is detailed and appropriate for endurance training. However, the solution has notable execution issues: calorie-to-macronutrient math is inconsistent across meals (suggesting calculation errors), and meal timing lacks specificity beyond the pre-run snack. While these deficiencies don't violate mandatory requirements, they significantly impact practical usability for an athlete needing a concrete daily schedule. The format is appropriately compact and well-organized.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
