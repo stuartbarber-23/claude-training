@@ -1,0 +1,38 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "This study investigates the role of CRISPR-Cas9 gene editing in modulating BDNF expression within hippocampal neurons derived from induced pluripotent stem cells (iPSCs). We employed whole-genome sequencing (WGS) and quantitative reverse transcription PCR (qRT-PCR) to assess off-target mutations and validate transgene expression levels. The neuronal cultures were maintained in Neurobasal-A medium supplemented with B27, and differentiation was induced using brain-derived neurotrophic factor (BDNF) and glial cell line-derived neurotrophic factor (GDNF). Our results demonstrate that precise CRISPR-mediated deletion of the BDNF regulatory region reduced synaptic plasticity markers, including decreased phosphorylation of CREB and reduced spine density, as measured by confocal microscopy. These findings suggest that epigenetic regulation of BDNF is critical for long-term potentiation and memory consolidation in neural circuits."
+    },
+    "solution_criteria": [
+      "Extracts primary research topics (e.g., CRISPR-Cas9, BDNF, gene editing, synaptic plasticity, iPSCs) while excluding incidental methodological details (e.g., specific medium components, microscopy types)",
+      "Distinguishes between main research concepts and technical procedures/tools used to study them",
+      "Returns results as a JSON array of strings with no duplicates"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+    "scenario": "Testing with a dense scientific abstract containing specialized terminology and acronyms: Use a biology/chemistry passage with domain-specific jargon, chemical compounds, and technical processes to verify the prompt can distinguish between main research topics and incidental methodological details"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent longitudinal studies examining the relationship between social media engagement and adolescent mental health outcomes reveal complex patterns that challenge earlier assumptions of direct causality. Using multilevel regression analyses with propensity score matching to control for selection bias, researchers found that the association between daily screen time and depressive symptoms varies significantly by socioeconomic status and peer network composition. Notably, the effect sizes differ by gender, with girls showing stronger correlations (r = 0.38, p < 0.001) compared to boys (r = 0.19, p < 0.05). These findings have prompted policy discussions regarding digital literacy interventions in schools and regulatory frameworks governing algorithmic content recommendation systems, with stakeholders debating whether age-restricted access or educational approaches prove more effective in mitigating psychological harm while preserving adolescent autonomy and social connection."
+    },
+    "solution_criteria": [
+      "Identifies topics spanning psychology (mental health, adolescent development), statistics (regression analysis, effect sizes, propensity matching), and policy (regulation, interventions, digital literacy)",
+      "Avoids over-generalizing by capturing distinct methodological and domain-specific concepts rather than reducing to single broad topics",
+      "Segments cross-disciplinary intersections appropriately without fragmenting integrated concepts"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+    "scenario": "Testing with an interdisciplinary passage covering multiple subject areas: Provide text from a social science article that blends psychology, statistics, and policy discussion to evaluate whether the prompt correctly segments topics across different knowledge domains without over-generalizing or missing cross-disciplinary concepts"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Modernist literature's fragmentation of narrative structure fundamentally challenged Victorian conventions of linear storytelling, forcing readers to confront the instability of meaning itself. Virginia Woolf's stream-of-consciousness technique, exemplified in Mrs. Dalloway, dissolves the boundaries between external events and internal consciousness, while T.S. Eliot's use of mythic parallels in The Waste Land creates palimpsestic layers of historical and cultural allusion. These formal innovations were not merely aesthetic choices but reflected the epistemological crisis of the early twentieth century\u2014the collapse of grand narratives following World War I, the influence of Freudian psychology, and the emergence of relativity theory. Symbolism functions in these works not as transparent representation but as a site of interpretive multiplicity, where a single image (Woolf's window, Eliot's Fisher King) accumulates meanings across temporal and cultural registers."
+    },
+    "solution_criteria": [
+      "Extracts both explicit academic terms (stream-of-consciousness, mythic parallels, symbolism, palimpsestic) and implicit scholarly concepts (narrative instability, epistemological crisis, interpretive multiplicity)",
+      "Identifies broader thematic areas (Modernist literature, narrative structure, historical context, psychological influence) alongside specific textual references",
+      "Returns results as a JSON array of strings with no additional formatting or explanatory text"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+    "scenario": "Testing with a humanities passage containing implicit themes: Extract topics from a literary criticism excerpt discussing narrative techniques, symbolism, and historical context to ensure the prompt identifies both explicit academic terms and implicit scholarly concepts"
+  }
+]
