@@ -1,14 +1,14 @@
 [
   {
-    "task": "Extract the AWS account ID from an ARN string like 'arn:aws:s3:::my-bucket/path/to/object'",
+    "task": "Parse an AWS S3 bucket URI and extract the bucket name and object key",
     "format": "regex"
   },
   {
-    "task": "Parse an AWS CloudWatch log entry and extract the timestamp, log level, and message",
-    "format": "python"
+    "task": "Create a JSON configuration object for an AWS Lambda function that processes S3 events with a 5-minute timeout",
+    "format": "json"
   },
   {
-    "task": "Create a CloudFormation template JSON snippet that defines an S3 bucket with versioning enabled and server-side encryption",
-    "format": "json"
+    "task": "Write a Python function that validates if a given string is a valid AWS IAM role ARN",
+    "format": "python"
   }
 ]
