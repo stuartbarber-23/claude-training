@@ -1,11 +1,14 @@
 [
   {
-    "task": "Write a Python function that takes an AWS S3 bucket name and returns True if it follows AWS naming conventions (lowercase, 3-63 characters, no underscores), False otherwise."
+    "task": "Extract the AWS account ID from an ARN string like 'arn:aws:s3:::my-bucket/path/to/object'",
+    "format": "regex"
   },
   {
-    "task": "Create a JSON object that represents an AWS IAM policy allowing a principal to perform GetObject and PutObject actions on a specific S3 bucket ARN."
+    "task": "Parse an AWS CloudWatch log entry and extract the timestamp, log level, and message",
+    "format": "python"
   },
   {
-    "task": "Write a regular expression that matches valid AWS EC2 instance IDs (format: i-followed by 8 or 17 hexadecimal characters)."
+    "task": "Create a CloudFormation template JSON snippet that defines an S3 bucket with versioning enabled and server-side encryption",
+    "format": "json"
   }
 ]
